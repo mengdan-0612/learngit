@@ -115,3 +115,34 @@
     cb926e7 HEAD@{3}: commit (initial): wrote a readme file
     
 这样就可以找到以前提交的`commit id`了
+
+###撤销修改
+
+####丢弃工作区的修改
+
+    $ git checkout -- readme.txt
+
+命令`git checkout -- readme.txt`意思就是，把`readme.txt`文件在工作区的修改全部撤销，这里有两种情况：
+一种是`readme.txt`自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；
+一种是`readme.txt`已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。
+总之，就是让这个文件回到最近一次`git commit`或`git add`时的状态。
+`git checkout -- file`命令中的--很重要，没有--，就变成了“切换到另一个分支”的命令
+
+####丢弃暂存区的修改
+
+    $ git reset HEAD readme.txt
+    Unstaged changes after reset:
+    M       readme.txt
+    
+`git reset`命令既可以回退版本，也可以把暂存区的修改回退到工作区。当我们用`HEAD`时，表示最新的版本。
+现在暂存区是干净的，工作区有修改，然后用`git checkout -- readme.txt`丢弃修改，就可以恢复文件了。
+
+###删除文件
+    $ git rm test.txt
+    rm 'test.txt'
+    $ git commit -m "remove test.txt"
+    [master d17efd8] remove test.txt
+     1 file changed, 1 deletion(-)
+     delete mode 100644 test.txt
+
+`git rm`删除文件，还需要提交
