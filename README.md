@@ -24,7 +24,9 @@
     create mode 100644 readme.txt
     
 简单解释一下`git commit`命令，`-m`后面输入的是本次提交的说明，可以输入任意内容，当然最好是有意义的，这样你就能从历史记录里方便地找到改动记录。
+
 `commit`可以一次提交很多文件，所以你可以多次add不同的文件，比如：
+
     $ git add file1.txt
     $ git add file2.txt file3.txt
     $ git commit -m "add 3 files."
