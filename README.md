@@ -8,7 +8,8 @@
 
 创建版本库
 -----
-###创建仓库
+### 创建仓库
+
     $ git init
     Initialized empty Git repository in /Users/michael/learngit/.git/
 
